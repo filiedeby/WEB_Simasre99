@@ -1,0 +1,26 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L] 
+</IfModule>
+
+RedirectMatch 403 ^/assets/?$
+RedirectMatch 403 ^/adminassets/?$
+DirectoryIndex index.php index.html
+Options +FollowSymLinks
+RewriteEngine on
+
+
+<Files "robots.txt">
+    # Izinkan hanya agen pengguna tertentu
+    SetEnvIfNoCase User-Agent "Googlebot" allow_bot
+    SetEnvIfNoCase User-Agent "Bingbot" allow_bot
+    SetEnvIfNoCase User-Agent "Yandex" allow_bot
+    SetEnvIfNoCase User-Agent "Baidu" allow_bot
+
+    # Blokir akses untuk selain bot di atas
+    Order Deny,Allow
+    Deny from all
+    Allow from env=allow_bot
+</Files>

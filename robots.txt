@@ -1,0 +1,12 @@
+User-Agent: *
+Disallow: /assets/
+Disallow: /third_party/
+Disallow: /system/
+Disallow: /php/
+Disallow: /libraries/
+Disallow: /helpers/
+Disallow: /adminassets/
+Disallow: /user_guide/
+Disallow: /application/
+Disallow: /ajax/
+Disallow: /vendor/
